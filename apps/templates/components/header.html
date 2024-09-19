@@ -1,0 +1,12 @@
+<header class="bg-white p-4 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold">{% block header_title %}Welcome, Juliana!{% endblock %}</h1>
+    <div class="flex items-center space-x-4">
+        <div class="relative">
+            <input type="text" placeholder="Search" class="border rounded-full px-4 py-2 pl-10">
+            <img src="{{ url_for('static', filename='img/feather/search.svg') }}" alt="Search" class="feather absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+        </div>
+        <div class="bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+            JD
+        </div>
+    </div>
+</header>

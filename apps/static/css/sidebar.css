@@ -1,0 +1,19 @@
+.sidebar {
+    width: 4rem; /* 64px, equivalent to w-16 in Tailwind */
+    background-color: #1a202c; /* Equivalent to bg-gray-800 in Tailwind */
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+    margin-bottom: 2rem; /* 32px, equivalent to space-y-8 in Tailwind */
+}
+
+.sidebar-icon:hover {
+    opacity: 0.7;
+}
+
+.sidebar-spacer {
+    flex-grow: 1;
+}

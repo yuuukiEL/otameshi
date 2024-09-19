@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="flex space-x-6">
+    <!-- Calendar -->
+    <div class="bg-white rounded-lg shadow-md p-6 flex-1">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">April 2022</h2>
+            <div class="flex space-x-2">
+                <button class="p-1 rounded-full hover:bg-gray-200">
+                    <img src="{{ url_for('static', filename='img/feather/chevron-left.svg') }}" alt="Previous" class="feather">
+                </button>
+                <button class="p-1 rounded-full hover:bg-gray-200">
+                    <img src="{{ url_for('static', filename='img/feather/chevron-right.svg') }}" alt="Next" class="feather">
+                </button>
+            </div>
+        </div>
+        <div id="calendar" class="grid grid-cols-7 gap-2">
+            <!-- Calendar will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="bg-white rounded-lg shadow-md p-6 w-1/3">
+        <h2 class="text-xl font-semibold mb-4">Urgent tasks 緊急のタスク</h2>
+        <ul class="space-y-3">
+            <li class="flex items-center">
+                <input type="checkbox" class="mr-2">
+                <span>Finish monthly reporting</span>
+                <span class="ml-auto text-pink-500 flex items-center">
+                    <img src="{{ url_for('static', filename='img/feather/clock.svg') }}" alt="Clock" class="feather w-4 h-4 mr-1">
+                    Today 今日
+                </span>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" class="mr-2">
+                <span>Report signing レポートの署名</span>
+                <span class="ml-auto text-pink-500 flex items-center">
+                    <img src="{{ url_for('static', filename='img/feather/clock.svg') }}" alt="Clock" class="feather w-4 h-4 mr-1">
+                    Today 今日
+                </span>
+            </li>
+            <li class="flex items-center">
+                <input type="checkbox" class="mr-2">
+                <span>Market overview keynote</span>
+                <span class="ml-auto text-pink-500 flex items-center">
+                    <img src="{{ url_for('static', filename='img/feather/clock.svg') }}" alt="Clock" class="feather w-4 h-4 mr-1">
+                    Today 今日
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="flex space-x-6 mt-6">
+    <!-- Journal History -->
+    <div class="bg-white rounded-lg shadow-md p-6 w-1/2">
+        <h2 class="text-xl font-semibold mb-4">Journal History 日記の履歴</h2>
+        <div class="space-y-4">
+            <div class="border-b pb-2">
+                <h3 class="font-semibold flex items-center">
+                    <img src="{{ url_for('static', filename='img/feather/edit-3.svg') }}" alt="Edit" class="feather w-4 h-4 mr-2">
+                    April 8, 2022
+                </h3>
+                <p class="text-sm text-gray-600">Today was productive. Finished the quarterly report and...</p>
+            </div>
+            <div class="border-b pb-2">
+                <h3 class="font-semibold flex items-center">
+                    <img src="{{ url_for('static', filename='img/feather/edit-3.svg') }}" alt="Edit" class="feather w-4 h-4 mr-2">
+                    April 7, 2022
+                </h3>
+                <p class="text-sm text-gray-600">Had a great team meeting. New ideas for the project...</p>
+            </div>
+            <div>
+                <h3 class="font-semibold flex items-center">
+                    <img src="{{ url_for('static', filename='img/feather/edit-3.svg') }}" alt="Edit" class="feather w-4 h-4 mr-2">
+                    April 6, 2022
+                </h3>
+                <p class="text-sm text-gray-600">Challenges with the client resolved. Moving forward with...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shared Terminals -->
+    <div class="bg-white rounded-lg shadow-md p-6 flex-1">
+        <h2 class="text-xl font-semibold mb-4">Shared Terminals 共有端末</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="border rounded p-4 flex items-center space-x-3">
+                <img src="{{ url_for('static', filename='img/feather/monitor.svg') }}" alt="Desktop" class="feather">
+                <span>Office Desktop</span>
+            </div>
+            <div class="border rounded p-4 flex items-center space-x-3">
+                <img src="{{ url_for('static', filename='img/feather/smartphone.svg') }}" alt="Smartphone" class="feather">
+                <span>Personal Phone</span>
+            </div>
+            <div class="border rounded p-4 flex items-center space-x-3">
+                <img src="{{ url_for('static', filename='img/feather/tablet.svg') }}" alt="Tablet" class="feather">
+                <span>Meeting Room Tablet</span>
+            </div>
+            <div class="border rounded p-4 flex items-center space-x-3">
+                <img src="{{ url_for('static', filename='img/feather/laptop.svg') }}" alt="Laptop" class="feather">
+                <span>Home Laptop</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+{% endblock %}

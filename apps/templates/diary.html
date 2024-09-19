@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}My Diary{% endblock %}
+
+{% block header_title %}Welcome, Juliana!{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/diary.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header-container">
+        <div class="date-navigation">
+            <button id="prevDay" class="nav-btn">
+                <img src="{{ url_for('static', filename='img/feather/chevron-left.svg') }}" alt="Previous Day">
+            </button>
+            <span id="currentDate" class="date">2024/07/25</span>
+            <button id="nextDay" class="nav-btn">
+                <img src="{{ url_for('static', filename='img/feather/chevron-right.svg') }}" alt="Next Day">
+            </button>
+            <button id="calendarBtn" class="nav-btn">
+                <img src="{{ url_for('static', filename='img/feather/calendar.svg') }}" alt="Calendar">
+            </button>
+        </div>
+        <div class="location-container">
+            <button id="locationBtn" class="location-btn">
+                <img src="{{ url_for('static', filename='img/feather/map-pin.svg') }}" alt="Location">
+                位置情報設定
+            </button>
+        </div>
+        <div class="header-buttons">
+            <button class="header-btn" id="settingsBtn">
+                <img src="{{ url_for('static', filename='img/feather/settings.svg') }}" alt="Settings">
+            </button>
+            <button class="header-btn" id="saveBtn">
+                <img src="{{ url_for('static', filename='img/feather/save.svg') }}" alt="Save">
+            </button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="left-column">
+            <div class="image-upload-container">
+                <div class="image-upload">
+                    <div id="imagePreview"></div>
+                    <button id="imageUploadBtn" class="image-button">画像を参照</button>
+                </div>
+                <div class="vertical-buttons">
+                    <button class="square-btn">1</button>
+                    <button class="square-btn">2</button>
+                    <button class="square-btn">3</button>
+                </div>
+            </div>
+            <div class="task-mood-location-container">
+                <div class="sticky-notes">
+                    <div class="sticky-note active" data-target="tomorrow-tasks">
+                        <h3 class="sticky-note-title">明日のタスク</h3>
+                        <img src="{{ url_for('static', filename='img/feather/plus.svg') }}" alt="Add Task" class="add-task-icon">
+                    </div>
+                    <div class="sticky-note" data-target="today-mood">
+                        <h3 class="sticky-note-title">今日の気分</h3>
+                    </div>
+                    <div class="sticky-note" data-target="location">
+                        <h3 class="sticky-note-title">位置情報</h3>
+                    </div>
+                </div>
+                <div id="tomorrow-tasks" class="task-mood-content active">
+                    <div id="taskList" class="task-list-container">
+                        <!-- タスクはここに動的に追加されます -->
+                    </div>
+                </div>
+                <div id="today-mood" class="task-mood-content">
+                    <div class="mood-inputs">
+                        <input type="text" class="mood-input" placeholder="朝の気分">
+                        <input type="text" class="mood-input" placeholder="昼の気分">
+                        <input type="text" class="mood-input" placeholder="晩の気分">
+                    </div>
+                </div>
+                <div id="location" class="task-mood-content">
+                    <div id="map" style="width: 100%; height: 200px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="diary-section">
+                <input type="text" id="diaryTitle" class="diary-title" placeholder="日記のタイトル">
+                <div class="diary-toolbar">
+                    <button class="toolbar-btn" data-command="fontSize" title="フォントサイズ">
+                        <img src="{{ url_for('static', filename='img/feather/type.svg') }}" alt="フォントサイズ">
+                    </button>
+                    <button class="toolbar-btn" data-command="insertUnorderedList" title="箇条書き">
+                        <img src="{{ url_for('static', filename='img/feather/list.svg') }}" alt="箇条書き">
+                    </button>
+                    <button class="toolbar-btn" data-command="foreColor" title="フォントカラー">
+                        <img src="{{ url_for('static', filename='img/feather/droplet.svg') }}" alt="フォントカラー">
+                    </button>
+                    <button class="toolbar-btn" data-command="hiliteColor" title="背景色">
+                        <img src="{{ url_for('static', filename='img/feather/edit-3.svg') }}" alt="背景色">
+                    </button>
+                    <button class="toolbar-btn" data-command="insertText" title="ハッシュタグ">
+                        <img src="{{ url_for('static', filename='img/feather/hash.svg') }}" alt="ハッシュタグ">
+                    </button>
+                </div>
+                <div id="diaryContent" class="diary" contenteditable="true" placeholder="日記を入力してください"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/diary.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatame - 日記アプリ</title>
+    <link rel="stylesheet" href="tatame.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="date-nav">
+            <div class="date-nav-controls">
+                <button id="prevDate">&lt;</button>
+                <span id="currentDate" class="date">2024/07/25</span>
+                <button id="nextDate">&gt;</button>
+            </div>
+            <span>📅</span>
+        </div>
+
+        <div class="content">
+            <div class="column">
+                <div class="hashtag">
+                    <div class="hashtag-title">#HashTag</div>
+                    <div class="hashtag-input">
+                        <input type="text" id="hashtagInput" placeholder="ハッシュタグを入力...">
+                    </div>
+                </div>
+
+                <div class="image-upload">
+                    <div id="imagePreview"></div>
+                    <button id="imageReferenceBtn">画像を参照</button>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="diary">
+                    <input type="text" class="diary-title" placeholder="日記のタイトル">
+                    <textarea class="diary-content" placeholder="今日の出来事を書いてください..."></textarea>
+                </div>
+
+                <div class="tomorrow-tasks">
+                    <div class="tomorrow-tasks-title">明日のタスク</div>
+                    <div id="taskList" class="task-list-container"></div>
+                    <div class="add-task">
+                        <input type="text" id="newTaskInput" placeholder="新しいタスク">
+                        <input type="date" id="taskDeadline">
+                        <button id="addTaskBtn">追加</button>
+                    </div>
+                </div>
+                <div class="footer-container">
+                    <div class="mood-points">
+                        <div class="mood">
+                            <h3>今日の気分</h3>
+                            <div id="moodIcon" class="mood-icon">
+                                <img src="/apps/static/img/icon/1.png" alt="アイコン 1" width="50" height="50">
+                            </div>
+                            <button id="selectIconBtn">アイコンを選択</button>
+                        </div>
+                        <div class="points" id="pointsContainer">
+                            <h3>ポイント</h3>
+                            <div id="totalPoints">0</div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="footer-btn">詳細設定</button>
+                        <button class="footer-btn">出力</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="iconModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>アイコンを選択</h2>
+            <div id="iconGrid"></div>
+        </div>
+    </div>
+
+    <div id="pointsTooltip" class="points-tooltip">
+        <div id="hashtagPoints">ハッシュタグ: <span>0</span>点</div>
+        <div id="diaryPoints">日記内容: <span>0</span>点</div>
+        <div id="imagePoints">画像: <span>0</span>点</div>
+        <div id="taskPoints">タスク: <span>0</span>点</div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="tatame.js"></script>
+</body>
+
+</html>
